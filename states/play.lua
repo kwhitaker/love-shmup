@@ -9,6 +9,9 @@ end
 
 function play:update(dt)
   self.stage:update(dt)
+  if self.stage:is_over() then
+    Gamestate.switch(require('states.gameover'), self.stage.score)
+  end
 end
 
 function play:draw()
